@@ -1,26 +1,33 @@
-# Projekt Mastermind - implementacja gry i algorytmu symulującego grę
-## Opis projektu
-Projekt składa się z 3 modułów:
-1. Tryb gry interaktywnej - pozwala na zagranie w grę Mastermind w wersji rozszerzonej, 
-   czyli z możliwością wybrania liczby kolorów i pól, posiada interfejs graficzny.
-   Dokładne zasady gry są wypisywane podczas uruchamiania aplikacji oraz są ogólnodostępne
-   w internecie.
-2. Tryb automatyczny - algorytm symulujący grę w wersji rozszerzonej, nie posiada 
-   interfejsu graficznego - dane są wpisywane bezpośrednio do konsoli.
-3. Moduł oceniający - zawiera funkcję weryfikującą zapytanie z sekwencją ukrytą, jest 
-   używany w pozostałych 2 modułach i nie jest interaktywny.
-## Użyte technologie
-Projekt został utworzony przy pomocy:
+# Mastermind Project - implementation of the game and game simulation algorithm
+## Project description
+The project consists of 3 modules:
+1. Interactive game mode - allows you to play the Mastermind game in an extended version, 
+   meaning with the possibility to choose the number of colors and slots, it has a graphical interface.
+   The exact rules of the game are printed when the application starts and are publicly available
+   on the internet.
+2. Automatic mode - an algorithm simulating the extended version of the game, it does not have 
+   a graphical interface - data is entered directly into the console.
+3. Evaluating module - contains a function verifying the guess against the hidden sequence, it is 
+   used in the other 2 modules and is not interactive.
+## Technologies used
+The project was created using:
 - Python 3.12.3
 - Kivy 2.2.1
-## Sposób użycia
-1. Żeby uruchomić tryb gry interaktywnej należy wpisać w konsolę polecenie: python3 master_graj.py
-   Uwaga! Do tworzenia graficznego interfejsu została użyta biblioteka Kivy, która jest potrzebna,
-   żeby aplikacja zadziałała prawidłowo. Instrukcje pobrania Kivy można znaleźć na stronie:
-   https://kivy.org/doc/stable/gettingstarted/installation.html
-2. Żeby uruchomić tryb automatyczny należy wpisać w konsolę polecenie: python3 master_automat.py
-## Źródła
-Przy tworzeniu tego projektu korzystałam ze stron:
+## How to use
+1. Install all needed libraries by typing the following command in the console:
+   ``` 
+   pip install -r requirements.txt
+   ```
+2. To run the interactive game mode:
+   ```
+   python3 master_graj.py
+   ```
+2. To run the automatic mode:
+   ```
+   python3 master_automat.py
+   ```
+## Sources
+While creating this project, I used the following websites:
 https://www.w3schools.com/python/
 https://kivy.org/doc/stable/
-oraz z kursu Kivy https://www.youtube.com/watch?v=l8Imtec4ReQ
+and the Kivy course https://www.youtube.com/watch?v=l8Imtec4ReQ
