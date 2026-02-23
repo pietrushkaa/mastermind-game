@@ -9,7 +9,7 @@ The project consists of 3 modules:
    a graphical interface - data is entered directly into the console.
 3. Evaluating module - contains a function verifying the guess against the hidden sequence, it is 
    used in the other 2 modules and is not interactive.
-## Technologies used
+## Used technologies
 The project was created using:
 - Python 3.12.3
 - Kivy 2.2.1
