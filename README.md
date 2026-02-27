@@ -39,6 +39,6 @@ The project was created using:
 
 ## Sources
 While creating this project, I used the following websites:
-https://www.w3schools.com/python/
-https://kivy.org/doc/stable/
-and the Kivy course https://www.youtube.com/watch?v=l8Imtec4ReQ
+- https://www.w3schools.com/python/
+- https://kivy.org/doc/stable/
+- and the Kivy course https://www.youtube.com/watch?v=l8Imtec4ReQ
