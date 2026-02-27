@@ -26,6 +26,17 @@ The project was created using:
    ```
    python3 master_automat.py
    ```
+## Interface & Gameplay
+*Game Setup Screen:*
+
+<img src="img_1.png" width="80%" alt="">
+
+---
+
+*Screen of the main window during an active game:*
+
+<img src="img_2.png" width="80%" alt="">
+
 ## Sources
 While creating this project, I used the following websites:
 https://www.w3schools.com/python/
