@@ -2,45 +2,45 @@ def sprawdz(
     k: int, sekwencja_ukryta: list[int], zapytanie: list[int]
 ) -> tuple[int, int]:
     """
-    Funkcja oceniająca poprawność zapytania do gry Mastermind.
-    Algorytm użyty w funkcji polega na zliczeniu w pierwszej 
-    kolejności pionków o właściwym kolorze na właściwym miejscu 
-    i posortowanie tych, które nie zostały zliczone względem koloru.
-    Następnie dla każdego koloru należy porównać liczbę pionków 
-    w tym kolorze pozostałych w sekwencji ukrytej oraz w zapytaniu 
-    i dodać do liczby pionków o właściwym kolorze, ale na niewłaściwym
-    miejscu mniejszą z nich.
+    Function evaluating the correctness of a guess in the Mastermind game.
+    The algorithm used in the function first counts the pegs of the right color 
+    in the right place, and groups the remaining uncounted ones by color.
+    Next, for each color, it compares the number of pegs of that color remaining 
+    in the hidden sequence and in the guess, and adds the smaller of the two 
+    to the number of pegs of the right color but in the wrong place.
     
-    Przyjmuje:
-    k - liczba kolorów
-    sekwencja_ukryta - lista kodująca sekwencję ukrytą
-    zapytanie - lista kodująca pojedyncze zapytanie
-    Zwraca:
-    krotka[wl_k_m, wl_k]
-    wl_k_m - liczba pionków o właściwym kolorze i na właściwym miejscu
-    wl_k - liczba pionków o właściwym kolorze, ale na niewłaściwym miejscu
+    Accepts:
+    k - number of colors
+    sekwencja_ukryta - list encoding the hidden sequence
+    zapytanie - list encoding a single guess
+    Returns:
+    tuple[wl_k_m, wl_k]
+    wl_k_m - number of pegs of the right color and in the right place
+    wl_k - number of pegs of the right color, but in the wrong place
     """
-    # Wykrywanie możliwych błędów: sprawdzanie, czy dane są prawidłowych typów
+    # Detecting possible errors: checking if the data types are correct
     if (
         not isinstance(sekwencja_ukryta, list) 
         or not isinstance(zapytanie, list)
         or not isinstance(k, int)
     ):
-        raise Exception("Dane są nieprawidłowych typów!")
-    # Sprawdzanie, czy dane w listach są typu int i czy mieszczą się w odpowiednich przedziałach
+        raise Exception("Data types are incorrect!")
+    
+    # Checking if the data in the lists are of type int and fall within the appropriate ranges
     if not all(isinstance(x, int) and k >= x > 0 for x in sekwencja_ukryta) or not all(
        isinstance(x, int) and k >= x > 0 for x in zapytanie):
-        raise Exception("Dane w listach kodujących sekwencję lub zapytanie są nieprawidłowe!")
-    # Sprawdzanie, czy listy sekwencji i zapytania są tej samej długości
+        raise Exception("Data in the lists encoding the sequence or guess is incorrect!")
+    
+    # Checking if the sequence and guess lists are of equal length
     if len(sekwencja_ukryta) != len(zapytanie):
-        raise Exception("Listy kodujące sekwencję i zapytanie nie są równej długości!")
+        raise Exception("The lists encoding the sequence and the guess are not of equal length!")
 
     ile_zostalo_zap = [0 for i in range(k)] 
-    # ile__zostalo_zap[i] = ile jest w zapytaniu pionków koloru i, które pozostały po odrzuceniu pionków o właściwym kolorze i miejscu
+    # ile_zostalo_zap[i] = how many pegs of color i are in the guess, remaining after discarding pegs of the right color and place
     ile_zostalo_sek = [0 for i in range(k)]  
-    # ile_zostalo_sek[i] - ile jest w sekwencji ukrytej pionków koloru i, które pozostały po odrzuceniu pionków o właściwym kolorze i miejscu
+    # ile_zostalo_sek[i] - how many pegs of color i are in the hidden sequence, remaining after discarding pegs of the right color and place
 
-    # Zliczanie pionków o właściwym kolorze na właściwym miejscu oraz list ile_zap i ile_sek
+    # Counting pegs of the right color in the right place and populating ile_zap and ile_sek lists
     wl_k_m = 0
     for i in range(len(zapytanie)):
         if sekwencja_ukryta[i] == zapytanie[i]:
@@ -49,7 +49,7 @@ def sprawdz(
             ile_zostalo_zap[sekwencja_ukryta[i] - 1] += 1 # 
             ile_zostalo_sek[zapytanie[i] - 1] += 1
 
-    # Zliczanie pionków o właściwym kolorze, ale na niewłaściwym miejscu (według algorytmu j.w.)
+    # Counting pegs of the right color but in the wrong place (according to the algorithm above)
     wl_k = 0
     for i in range(k):
         wl_k += min(ile_zostalo_sek[i], ile_zostalo_zap[i])
